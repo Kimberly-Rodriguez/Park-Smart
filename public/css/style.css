@@ -83,3 +83,12 @@ button {
   border-top: 2px solid black;
   border-left: 5px solid white;
 }
+/* time slider css */
+#custom-handle {
+  width: 3em;
+  height: 1.6em;
+  top: 50%;
+  margin-top: -.8em;
+  text-align: center;
+  line-height: 1.6em;
+}
