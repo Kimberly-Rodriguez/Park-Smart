@@ -1,0 +1,120 @@
+<header class="display-flex justify-space-between align-center p-2">
+    <h1>
+        <span role="img" aria-label="money">🚗</span>
+        <a href="/">Park Smart</a>
+        <span role="img" aria-label="money">🚙</span>
+    </h1>
+    <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="../homepage">My Neighborhood</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="../login">login</a>
+        {{/if}}
+    </nav>
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 black"></div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">1</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">2</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">3</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">4</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">5</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">6</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100">7</button>
+            </div>
+            <div class="col-1 black top-horizontal right-white">
+                <button class="w-100">8</button>
+            </div>
+            <div class="col-2 black"></div>
+        </div>
+        <div class="row">
+            <div class="col-1 black"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <button class="w-100 top-margin vertical-button">24</button>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-1 black right-horizontal top-white">
+                <button class="w-100 top-margin vertical-button">9</button>
+            </div>
+            <div class="col-1 black"></div>
+        </div>
+        <div class="row">
+            <div class="col-1 black"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <button class="w-100 top-margin vertical-button">23</button>
+            </div>
+            <div class="col-8" style="text-align:center; font-size: 30px;">Welcome to your Neighborhood!</div>
+            <div class="col-1 black right-horizontal top-white">
+                <button class="w-100 top-margin vertical-button">10</button>
+            </div>
+            <div class="col-1 black"></div>
+        </div>
+        <div class="row">
+            <div class="col-1 black"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <button class="w-100 top-margin vertical-button">22</button>
+            </div>
+            <div class="col-8" style="text-align:center; font-size: 40px;">🚗 🚙</div>
+            <div class="col-1 black right-horizontal top-white">
+                <button class="w-100 top-margin vertical-button">11</button>
+            </div>
+            <div class="col-1 black"></div>
+        </div>
+        <div class="row">
+            <div class="col-1 black"></div>
+            <div class="col-1 black left-horizontal top-white bottom-white">
+                <button class="w-100 top-margin vertical-button">21</button>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-1 black right-horizontal top-white bottom-white">
+                <button class="w-100 top-margin vertical-button">12</button>
+            </div>
+            <div class="col-1 black"></div>
+        </div>
+        <div class="row">
+            <div class="col-2 black"></div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">20</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">19</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">18</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">17</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">16</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">15</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100">14</button>
+            </div>
+            <div class="col-1 black bottom-horizontal right-white">
+                <button class="w-100">13</button>
+            </div>
+            <div class="col-2 black"></div>
+        </div>
+    </div>
+</main>
