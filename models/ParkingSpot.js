@@ -17,7 +17,7 @@ ParkingSpot.init(
             defaultValue: true
         },
         time_available: {
-            type: DataTypes.DATE,
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         user_id: {
