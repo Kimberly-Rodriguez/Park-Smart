@@ -10,16 +10,23 @@ router.get('/', (req, res) => {
   }
 });
 
-// router.get('/project/:id', async (req, res) => {
-//   try {
-//     const projectData = await Project.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+router.get('/neighborhood', withAuth, (req, res) => {
+  try {
+    res.render('neighborhood')
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.get('/login', (req, res) => {
+  try {
+    res.render('login')
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+
 
 //     const project = projectData.get({ plain: true });
 
