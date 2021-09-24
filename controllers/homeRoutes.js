@@ -26,6 +26,14 @@ router.get('/login', (req, res) => {
   }
 });
 
+router.get('/spot/:id', withAuth, (req, res) => {
+  try {
+    res.render('spot')
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
 
 
 //     const project = projectData.get({ plain: true });
