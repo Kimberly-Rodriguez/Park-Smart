@@ -19,21 +19,13 @@ User.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        parking_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'parkingspot',
-                key: 'id',
-            }
-        }
-
     },
     {
         sequelize,
         timestamps: true,
         freezeTableName: true,
         underscored: true,
-        modelName: 'parkingspot'
+        modelName: 'user'
     }
 );
 

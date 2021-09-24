@@ -1,0 +1,17 @@
+[
+    {
+      
+      "spot_taken": true,
+      "time_available": 1023
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    }
+  ]
