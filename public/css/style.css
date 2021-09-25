@@ -64,7 +64,6 @@ section{
 
 .no-button:hover {
   color: #065b83;
-  text-decoration: underline;
 }
 
 .dollar-amount {
@@ -76,6 +75,7 @@ section{
 .aerial-road {
 
   background-image: url('../assets/img/aerial-road.jpg');
+ 
 }
 
 header {
@@ -86,8 +86,7 @@ header {
 }
 
 a {
-
-  color: rgba(206, 185, 0, 0.9);
+  color: white;
 }
 
 h1 {
