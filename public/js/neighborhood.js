@@ -101,6 +101,7 @@ $( function() {
 
 spotOne.addEventListener('click', modalDisplay);
 
+// modal range will show the value in the input box
 function updateTextInput(val) {
   document.getElementById('textInput').value=val; 
 }
