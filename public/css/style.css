@@ -13,6 +13,23 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* First two cards */
+.card-1 {
+  background-color: rgba(203, 225, 220, 0.454);
+}
+
+.card {
+  text-align:center;
+  background-color: rgba(241, 245, 245, 0.927);
+}
+
+/* neighborhood buttons */
+#neighborhood-1, #neighborhood-2,#neighborhood-3 {
+  background-color: teal;
+
+}
+
+
 .no-button {
   background: none;
   border: none;
@@ -150,7 +167,7 @@ button {
   line-height: 1.6em;
 }
 
-/* Vidoe css */
+/* Video css */
 video.bg-video {
   position: fixed;
   top: 50%;
