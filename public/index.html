@@ -1,110 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
     <meta name="author" content="" />
 
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+        rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap"
-      rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap"
+        rel="stylesheet"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-      crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+        crossorigin="anonymous"
     />
-    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
-    <!-- <link rel="stylesheet" href="./css/jass.css" /> -->
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Park Smart</title>
+    
+  <title>Park Smart</title>
+  <link rel="stylesheet" href="../../public/css/jass.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
-<!-- Background Video-->
-    <video
-        class="bg-video"
-        playsinline="playsinline"
-        autoplay="autoplay"
-        muted="muted"
-        loop="loop"
-    >
-        <source src="./assets/mp4/bg.mp4" type="video/mp4" />
-    </video>
-    <!-- Masthead-->
-    <div class="masthead">
-        <div class="masthead-content text-white">
-            <div class="container-fluid px-4 px-lg-0">
-                <h1 class="fst-italic lh-1 mb-4">[ PARKSMART ]</h1>
-                    <p class="mb-5">
-                        Please input your contact information to get started.
-                        </p>
-            <!-- Email address input-->
-            <div class="row input-group-newsletter">
-            <div class="col">
-                <input
-                class="form-control"
-                id="email"
-                type="email"
-                placeholder="Enter email address..."
-                aria-label="Enter email address..."
-                data-sb-validations="required,email"
-                />
+<body class="aerial-road">
+<header class="display-flex justify-space-between align-center p-2">
+    <h1>
+        <span role="img" aria-label="money"></span>
+        <a class="fst-italic lh-1 mb-4" href="/">PARKSMART</a>
+        <span role="img" aria-label="money"></span>
+    </h1>
+    <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="../homepage">My Neighborhood</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="../login">login</a>
+        {{/if}}
+    </nav>
+</header>
+<main>
+    <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel">This Spot is Taken!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-auto">
-                <button
-                class="btn btn-primary disabled"
-                id="submitButton"
-                type="submit"
-                >
-                Sign In!
-                </button>
+            <div class="modal-body">
+              It will be available at : 
             </div>
+            <div class="modal-footer">
+              <button class="btn btn-dark" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit Time</button>
+              <button class="btn btn-dark" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">I'm Leaving</button>
             </div>
-            <!-- Social Icons -->
-            <!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
-            <div class="social-icons">
-            <div
-                class="
-                d-flex
-                flex-row flex-lg-column
-                justify-content-center
-                align-items-center
-                h-100
-                mt-3 mt-lg-0
-                "
-            >
-                <a class="btn btn-dark m-3" href="#!"
-                ><i class="fab fa-twitter"></i
-                ></a>
-                <a class="btn btn-dark m-3" href="#!"
-                ><i class="fab fa-facebook-f"></i
-                ></a>
-                <a class="btn btn-dark m-3" href="#!"
-                ><i class="fab fa-instagram"></i
-                ></a>
-            </div>
-            </div>
-        </div>
+          </div>
         </div>
     </div>
-    <!-- Font Awesome icons (free version)-->
-    <script
-        src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"
-        crossorigin="anonymous"
-    ></script>
-    <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel2">This Spot is Available!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      I am parking here
+                    </label>
+                </div>
+                <br>
+                <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+                <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Park Here!</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black"></div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 one btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100 two">2</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100 three">3</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100 four">4</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100 five">5</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100 six">6</button>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <button class="w-100 seven">7</button>
+            </div>
+            <div class="col-1 black top-horizontal right-white">
+                <button class="w-100 eight">8</button>
+            </div>
+            <div class="col-1 black"></div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <button class="w-100 top-margin vertical-button twenty-four">24</button>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-1 black right-horizontal top-white">
+                <button class="w-100 top-margin vertical-button nine">9</button>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <button class="w-100 top-margin vertical-button twenty-three">23</button>
+            </div>
+            <div class="col-8 welcome fst-italic lh-1 mb-4">Welcome to your Neighborhood!</div>
+            <div class="col-1 black right-horizontal top-white">
+                <button class="w-100 top-margin vertical-button ten">10</button>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <button class="w-100 top-margin vertical-button twenty-two">22</button>
+            </div>
+            <div class="col-8" style="text-align:center; font-size: 40px;">🚗 🚙</div>
+            <div class="col-1 black right-horizontal top-white">
+                <button class="w-100 top-margin vertical-button eleven">11</button>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white bottom-white">
+                <button class="w-100 top-margin vertical-button twenty-one">21</button>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-1 black right-horizontal top-white bottom-white">
+                <button class="w-100 top-margin vertical-button twelve">12</button>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black"></div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 twenty">20</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 nineteen">19</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 eighteen">18</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 seventeen">17</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 sixteen">16</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 fifteen">15</button>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <button class="w-100 fourteen">14</button>
+            </div>
+            <div class="col-1 black bottom-horizontal right-white">
+                <button class="w-100 thirteen">13</button>
+            </div>
+            <div class="col-1 black"></div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="../public/js/neighborhood.js"></script>
 </body>
 </html>
