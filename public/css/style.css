@@ -13,16 +13,12 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
-}
-
 .no-button {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: rgba(206, 185, 0, 0.9);
   text-decoration: none;
   font-size: 100%;
 }
@@ -38,21 +34,51 @@ header, .project:not(:last-child) {
   margin-left: -5px;
 }
 
+.aerial-road {
+
+  background-image: url('../assets/img/aerial-road.jpg');
+}
+
 header {
 
-  height: 100px;
+  height: 150px;
+  background-color: rgba(6, 68, 11, 0.95);
+  color: rgba(206, 185, 0, 0.9);
+}
+
+a {
+
+  color: rgba(206, 185, 0, 0.9);
 }
 
 h1 {
 
   margin-left: 40px;
   font-size: 50px;
+  display: inline-block;
+  line-height: 120px;
+}
+
+nav {
+
+  float: right;
+  line-height: 120px;
 }
 
 main {
 
   margin-top: 50px;
 }
+
+.welcome {
+
+  text-align:center; 
+  font-size:30px; 
+  color:white;
+  background-color: rgba(45, 45, 45, 0.7);
+  padding-top: 10px;
+}
+
 
 .black {
 
