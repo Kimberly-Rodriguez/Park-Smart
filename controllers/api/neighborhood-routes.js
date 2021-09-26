@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { ParkingSpot } = require('../../models');
+const { ParkingSpot, User } = require('../../models');
 
 // The `/api/ParkingSpot` endpoint
 
@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   // find all ParkingSpot -- be sure to include its associated Category and Tag data
   try {
     const keyData = await ParkingSpot.findAll({
-      include: [{model: Category}, {model: Tag, through: ParkingSpotTag, as:'tags'}]
+      include: [{model: User}]
     });
     res.status(200).json(keyData);
   } catch (err) {
