@@ -13,6 +13,45 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* First two cards */
+.card-1 {
+  background-color: rgba(203, 225, 220, 0.454);
+}
+
+.card {
+  text-align:center;
+  background-color: rgba(241, 245, 245, 0.927);
+  
+}
+
+
+/* Neighborhood Card */
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .flex.row {
+    flex-direction: row; }
+  .flex.wrap {
+    flex-wrap: wrap; }
+
+/* Neighborhood Card*/
+section{
+  color: #616161;
+  position:relative;
+}
+/* Neighborhood Card*/
+.header {
+  font-size: 25pt;
+  font-family: 'raleway-bold';
+  position: 'center';
+  color: #444649;
+  position: relative; }
+
+
+
+
 .no-button {
   background: none;
   border: none;
@@ -25,7 +64,6 @@ body {
 
 .no-button:hover {
   color: #065b83;
-  text-decoration: underline;
 }
 
 .dollar-amount {
@@ -37,18 +75,18 @@ body {
 .aerial-road {
 
   background-image: url('../assets/img/aerial-road.jpg');
+ 
 }
 
 header {
 
   height: 150px;
-  background-color: rgba(6, 68, 11, 0.95);
+  background-color:  rgba(15, 82, 66, 0.509);
   color: rgba(206, 185, 0, 0.9);
 }
 
 a {
-
-  color: rgba(206, 185, 0, 0.9);
+  color: white;
 }
 
 h1 {
@@ -150,7 +188,7 @@ button {
   line-height: 1.6em;
 }
 
-/* Vidoe css */
+/* Video css */
 video.bg-video {
   position: fixed;
   top: 50%;
@@ -275,3 +313,27 @@ video.bg-video {
     width: auto;
   }
 }
+
+/* Portfolio */
+@media screen and (min-width: 600px){
+section {
+    line-height: 18pt;
+    padding: 100px 0 130px 0;
+}}
+
+@media screen and (min-width: 960px){
+.animated.slide-in-right {
+    animation: slideInRight 0.75s ease both;
+}}
+
+@media screen and (min-width: 600px)
+{
+.header {
+    font-size: 30pt;
+}}
+
+@media screen and (min-width: 600px){
+section {
+    line-height: 18pt;
+    padding: 100px 0 130px 0;
+}}

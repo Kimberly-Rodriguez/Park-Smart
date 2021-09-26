@@ -1,4 +1,4 @@
-const ParkingSpot = require ('./ParkingSpot');
+const ParkingSpot = require ('./neighborhood');
 const User = require ('./User');
 
 ParkingSpot.belongsTo(User, {
