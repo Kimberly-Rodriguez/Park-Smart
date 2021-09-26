@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { ParkingSpot, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+//homepage
 router.get('/', (req, res) => {
   try {
     res.render('homepage')
@@ -9,7 +10,7 @@ router.get('/', (req, res) => {
     res.status(500).json(err)
   }
 });
-
+//
 router.get('/neighborhood', withAuth, (req, res) => {
   try {
     res.render('neighborhood')

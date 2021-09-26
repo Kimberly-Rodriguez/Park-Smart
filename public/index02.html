@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+        rel="stylesheet"
+    />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap"
+        rel="stylesheet"
+    />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+        crossorigin="anonymous"
+    />
+    
+  <title>Park Smart</title>
+  <link rel="stylesheet" href="../../public/css/jass.css">
+  <link rel="stylesheet" href="./css/style.css">
+  
+</head>
+
+<body class="aerial-road">
+<header class="display-flex justify-space-between align-center p-2">
+    <h1>
+        <span role="img" aria-label="money"></span>
+        <a class="" href="/">[ PARKSMART ]</a>
+        <span role="img" aria-label="money"></span>
+    </h1>
+    <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="../homepage">My Neighborhood</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="../login">login</a>
+        {{/if}}
+    </nav>
+</header>
+<main>
+    <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel">This Spot is Taken!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              It will be available at : 
+            </div>
+            <div class="modal-footer">
+                <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+                <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
+                <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit My Time</button>
+                <span>OR</span>
+                <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">I'm Leaving</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalToggleLabel2">This Spot is Available!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      I am parking here
+                    </label>
+                </div>
+                <br>
+                <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+                <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Park Here!</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black"></div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 one btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 two btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 three btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">3</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 four btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">4</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 five btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">5</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 six btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">6</a>
+            </div>
+            <div class="col-1 black top-horizontal">
+                <a class="w-100 seven btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">7</a>
+            </div>
+            <div class="col-1 black top-horizontal right-white">
+                <a class="w-100 eight btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">8</a>
+            </div>
+            <div class="col-1 black"></div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <a class="w-100 top-margin vertical-button twenty-four btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">24</a>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-1 black right-horizontal top-white">
+                <a class="w-100 top-margin vertical-button nine btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">9</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <a class="w-100 top-margin vertical-button twenty-three btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">23</a>
+            </div>
+            <div class="col-8 welcome fst-italic lh-1 mb-4">Welcome to your Neighborhood!</div>
+            <div class="col-1 black right-horizontal top-white">
+                <a class="w-100 top-margin vertical-button ten btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">10</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white">
+                <a class="w-100 top-margin vertical-button twenty-two btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">22</a>
+            </div>
+            <div class="col-8" style="text-align:center; font-size: 40px;">🚗 🚙</div>
+            <div class="col-1 black right-horizontal top-white">
+                <a class="w-100 top-margin vertical-button eleven btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">11</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black left-horizontal top-white bottom-white">
+                <a class="w-100 top-margin vertical-button twenty-one btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">21</a>
+            </div>
+            <div class="col-8"></div>
+            <div class="col-1 black right-horizontal top-white bottom-white">
+                <a class="w-100 top-margin vertical-button twelve btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">12</a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-1 black"></div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 twenty btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">20</a>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 nineteen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">19</a>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 eighteen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">18</a>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 seventeen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">17</a>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 sixteen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">16</a>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 fifteen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">15</a>
+            </div>
+            <div class="col-1 black bottom-horizontal">
+                <a class="w-100 fourteen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">14</a>
+            </div>
+            <div class="col-1 black bottom-horizontal right-white">
+                <a class="w-100 thirteen btn btn-light" data-bs-toggle="modal" href="#ModalToggle" role="button">13</a>
+            </div>
+            <div class="col-1 black"></div>
+            <div class="col-1"></div>
+        </div>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="../public/js/neighborhood.js"></script>
+</body>
+</html>

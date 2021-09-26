@@ -263,13 +263,13 @@ video.bg-video {
 
 @media (min-width: 992px) {
   .masthead {
-    height: 100%;
-    width: 75vw;
+    height: 40vh;
+    width: 100%;
     min-height: 0;
     padding-bottom: 0;
   }
   .masthead:before {
-    transform: skewX(-9deg);
+   
     transform-origin: top right;
   }
   .masthead .masthead-content {
@@ -287,7 +287,8 @@ video.bg-video {
 }
 @media (min-width: 1200px) {
   .masthead {
-    width: 65vw;
+    width: 100%;
+    height: 60vh;
   }
 }
 .social-icons {
