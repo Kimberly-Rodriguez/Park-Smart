@@ -12,10 +12,9 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const project of parkingData) {
+  for (const spot of parkingData) {
     await ParkingSpot.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      ...spot,
     });
   }
 

@@ -16,6 +16,14 @@ router.post('/', async (req, res) => {
   }
 });
 
+// create a put route 
+// when you send the put resquest time:req.body 
+// userid = user(whatever the user is using)
+// put request (compare parking spot with park session)
+// session ==== parkingspot
+// pass time with req body 
+// userid session = gets the id value 
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
