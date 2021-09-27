@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 //localhost:3001/neighborhood
-router.get('/neighborhood', async (req, res) => {
+router.get('/neighborhood', withAuth, async (req, res) => {
   try {
     const spotData = await ParkingSpot.findAll({
       include: [{model: User}]
