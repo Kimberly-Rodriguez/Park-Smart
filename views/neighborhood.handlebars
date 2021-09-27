@@ -45,18 +45,18 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input class="form-check-input spot_taken" type="checkbox" value="" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                             I am parking here
                             </label>
                         </div>
                         <br>
-                        <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input name="time_available" type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+                        <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input class="time_available" type="text" id="textInput" value=""><label>&nbsp; minutes</label>
                         <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
                     </div>
                     <div class="modal-footer">
                     {{!-- this will be a put route that updates the parkingspot.spot_taken to true & the parkingspot.time_available to req.body.time_available where user_id matches user(id) in session --}}
-                    <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Park Here!</button>
+                    <button class="btn btn-success spotTakenPutRequest" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Park Here!</button>
                     </div>
                 </div>
             </div>          
@@ -67,10 +67,10 @@
             <div class="col-1 black"></div>
 
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-taken="{{parkingSpots.[0].spot_taken}}" data-time="{{parkingSpots.[0].time_available}}" data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
+                <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-taken="{{parkingSpots.[0].spot_taken}}" data-time="{{parkingSpots.[0].time_available}}" data-spot=1 data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
+                <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-taken="{{parkingSpots.[1].spot_taken}}" data-time="{{parkingSpots.[1].time_available}}" data-spot=2 data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
             </div>
             <div class="col-1 black top-horizontal">
                 <a class="w-100 btn {{parkingSpots.[2].spot_taken}} spot" data-bs-toggle="modal" href="#ModalToggle" role="button">3</a>
