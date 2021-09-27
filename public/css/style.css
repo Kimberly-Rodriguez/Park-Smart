@@ -52,7 +52,7 @@ section{
 
 
 
-.no-button {
+/* .no-button {
   background: none;
   border: none;
   padding: 0;
@@ -70,12 +70,29 @@ section{
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
+} */
+
+.false, .green {
+
+  background-color: green;
+}
+
+.true, .red {
+
+  background-color: red;
 }
 
 .aerial-road {
 
   background-image: url('../assets/img/aerial-road.jpg');
- 
+  padding-bottom: 40px;
+}
+
+.SMstreet {
+
+  background-image: url('../assets/img/parking-spot.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 header {
@@ -101,6 +118,29 @@ nav {
 
   float: right;
   line-height: 120px;
+}
+
+.logInForm {
+
+  width: 35%;
+  height: auto;
+  margin: 100px auto;
+}
+
+.logInCard {
+
+  margin: auto;
+}
+
+.login-button {
+
+  margin: 40px auto 10px;
+  text-align: center;
+}
+
+.signup-button {
+
+  margin-top: 10px;
 }
 
 main {
