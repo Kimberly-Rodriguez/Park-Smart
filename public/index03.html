@@ -22,7 +22,7 @@ crossorigin="anonymous"
 />
 
  <!-- <link rel="stylesheet" href="./css/jass.css" /> -->
- <link rel="stylesheet" href="../css/style.css" />
+ <link rel="stylesheet" href="./css/style.css" />
  <title>Park Smart</title>
 
 <body>
@@ -34,7 +34,7 @@ crossorigin="anonymous"
       muted="muted"
       loop="loop"
   >
-      <source src="../assets/mp4/bg.mp4" type="video/mp4" />
+      <source src="./assets/mp4/bg.mp4" type="video/mp4" />
   </video>
   <!-- Masthead-->
   <div class="masthead">
@@ -46,7 +46,16 @@ crossorigin="anonymous"
                       </p>
           <!-- Email address input-->
           <div class="row input-group-newsletter">
-        
+          <div class="col">
+              <input
+              class="form-control"
+              id="email"
+              type="email"
+              placeholder="Enter email address..."
+              aria-label="Enter email address..."
+              data-sb-validations="required,email"
+              />
+          </div>
           <div class="col-auto">
               <button
               class="btn btn-primary disabled"
@@ -140,7 +149,7 @@ crossorigin="anonymous"
           </div>
           <div>
             <button
-            class="btn btn-primary neighborhoodRoutes"
+            class="btn btn-primary neighborhoodRoute"
             id="neighborhoodButton-4"
             type="submit"
             >

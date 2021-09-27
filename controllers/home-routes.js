@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { ParkingSpot, User } = require('../models');
 const withAuth = require('../utils/auth');
+// const colorChange = require('../public/js/neighborhood')
 
 //homepage
 router.get('/', (req, res) => {
@@ -13,7 +14,9 @@ router.get('/', (req, res) => {
 //
 router.get('/neighborhood', withAuth, (req, res) => {
   try {
-    res.render('neighborhood')
+    res.status(200).json(req);
+    // res.render('neighborhood')
+    // colorChange();
   } catch (err) {
     res.status(500).json(err)
   }
