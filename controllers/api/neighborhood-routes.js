@@ -39,41 +39,24 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+
 // update ParkingSpot
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   // update ParkingSpot data
-  ParkingSpot.update(req.body, {
+  const updateParkingSpot = await ParkingSpot.update(req.body,
+    
+    {
+      // All the fields you can update and the data attached to the request body.
+      spot_taken: req.body.spot_taken,
+      time_available: req.body.time_available,
+      user_id: req.session.user_id
+    },
+   {
     where: {
-      id: req.params.id,
+      id: req.params.id
     },
   })
-    .then((ParkingSpot) => {
-      // find all associated tags from ParkingSpotTag
-      return ParkingSpotTag.findAll({ where: { ParkingSpot_id: req.params.id } });
-    })
-    .then((ParkingSpotTags) => {
-      // get list of current tag_ids
-      const ParkingSpotTagIds = ParkingSpotTags.map(({ tag_id }) => tag_id);
-      // create filtered list of new tag_ids
-      const newParkingSpotTags = req.body.tagIds
-        .filter((tag_id) => !ParkingSpotTagIds.includes(tag_id))
-        .map((tag_id) => {
-          return {
-            ParkingSpot_id: req.params.id,
-            tag_id,
-          };
-        });
-      // figure out which ones to remove
-      const ParkingSpotTagsToRemove = ParkingSpotTags
-        .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
-        .map(({ id }) => id);
-
-      // run both actions
-      return Promise.all([
-        ParkingSpotTag.destroy({ where: { id: ParkingSpotTagsToRemove } }),
-        ParkingSpotTag.bulkCreate(newParkingSpotTags),
-      ]);
-    })
+   
     .then((updatedParkingSpotTags) => res.status(200).json(updatedParkingSpotTags))
     .catch((err) => {
       // console.log(err);
@@ -81,8 +64,6 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// no delete OR create route needed, correct?
-// what other routes are needed?
 
 
 
