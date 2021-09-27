@@ -98,8 +98,10 @@ section{
 
 .aerial-road {
 
-  background-image: url('../assets/img/aerial-road.jpg');
+  background-image: url('../assets/img/neighborhoodparking.jpeg');
   padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 .SMstreet {
