@@ -1,6 +1,7 @@
 const parkingLot = document.querySelector('.parkingLot');
 
 let spotId;
+let time = moment().format("m");
 
 function renderModal(event) {
   
@@ -35,22 +36,30 @@ function renderModal(event) {
       const putRequest = async () => {
         
         const spotTaken = document.querySelector('.spot_taken').checked;
-        const timeAvailable = document.querySelector('.time_available').value;
+        const timeInput = document.querySelector('.time_available').value;
 
-        const response = await fetch(`/api/neighborhood/${spotId}`, {
-          method: 'PUT',
-          body: JSON.stringify({
-            spot_taken: spotTaken,
-            time_available: timeAvailable,
-          }),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
-        if (response.ok) {
-          window.location.reload();
-        } else {
-          alert('Failed to add dish');
+        const minuteAvailable = moment(timeInput).format("m");
+        const timeAvailable = (time + minuteAvailable)
+        
+        if (timeAvailable) {
+
+          const response = await fetch(`/api/neighborhood/${spotId}`, {
+            method: 'PUT',
+            body: JSON.stringify({
+              spot_taken: spotTaken,
+              time_available: timeAvailable,
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          if (response.ok) {
+            console.log(time);
+            console.log(timeAvailable);
+            // window.location.reload();
+          } else {
+            alert('Failed to add dish');
+          }
         }
       }
 
