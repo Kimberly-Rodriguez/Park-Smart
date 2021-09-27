@@ -103,8 +103,10 @@ section{
 
 .aerial-road {
 
-  background-image: url('../assets/img/aerial-road.jpg');
+  background-image: url('../assets/img/neighborhoodparking.jpeg');
   padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
 
 .SMstreet {
@@ -172,7 +174,7 @@ main {
   text-align:center; 
   font-size:30px; 
   color:white;
-  background-color: rgba(45, 45, 45, 0.7);
+  /* background-color; */
   padding-top: 10px;
 }
 
