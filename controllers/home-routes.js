@@ -11,11 +11,12 @@ router.get('/', (req, res) => {
     res.status(500).json(err)
   }
 });
-//
-router.get('/neighborhood', withAuth, (req, res) => {
+
+//localhost:3001/neighborhood
+router.get('/neighborhood', (req, res) => {
   try {
-    res.status(200).json(req);
-    // res.render('neighborhood')
+    // res.status(200).json(req);
+    res.redirect('neighborhood')
     // colorChange();
   } catch (err) {
     res.status(500).json(err)
