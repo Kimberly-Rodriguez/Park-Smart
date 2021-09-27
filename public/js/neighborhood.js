@@ -15,9 +15,9 @@ function renderModal(event) {
       document.querySelector('.notTaken').style.display = 'none'
       
       const timeAttribute = event.target.getAttribute('data-time')
-      const timeEl = document.createElement('span');
+      const timeEl = document.querySelector('.timeDiv');
+      timeEl.innerHTML = '';
       timeEl.textContent = timeAttribute;
-      document.querySelector('.timeDiv').append(timeEl);
 
     } else {
 
