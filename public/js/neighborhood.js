@@ -1,76 +1,37 @@
-// const newFormHandler = async (event) => {
-//   event.preventDefault();
+const parkingLot = document.querySelector('.parkingLot');
 
-//   const name = document.querySelector('#project-name').value.trim();
-//   const needed_funding = document.querySelector('#project-funding').value.trim();
-//   const description = document.querySelector('#project-desc').value.trim();
+function renderModal(event) {
+  
+  event.preventDefault();
+  console.log(event.target);
 
-//   if (name && needed_funding && description) {
-//     const response = await fetch(`/api/projects`, {
-//       method: 'POST',
-//       body: JSON.stringify({ name, needed_funding, description }),
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//     });
+  if (event.target.matches('a')) {
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to create project');
-//     }
-//   }
-// };
+    const dataAttribute = event.target.getAttribute('data-taken')
 
-// const delButtonHandler = async (event) => {
-//   if (event.target.hasAttribute('data-id')) {
-//     const id = event.target.getAttribute('data-id');
+    if (dataAttribute === 'true') {
 
-//     const response = await fetch(`/api/projects/${id}`, {
-//       method: 'DELETE',
-//     });
+      document.querySelector('.taken').style.display = 'block'
+      document.querySelector('.notTaken').style.display = 'none'
+      
+      const timeAttribute = event.target.getAttribute('data-time')
+      const timeEl = document.createElement('span');
+      timeEl.textContent = timeAttribute;
+      document.querySelector('.timeDiv').append(timeEl);
 
-//     if (response.ok) {
-//       document.location.replace('/profile');
-//     } else {
-//       alert('Failed to delete project');
-//     }
-//   }
-// };
+    } else {
 
-// function colorChange() {
+      document.querySelector('.notTaken').style.display = 'block'
+      document.querySelector('.taken').style.display = 'none'
+    }
+  }
+}
 
-//   if (ParkingSpot.spot_taken === true) {
-    
-//     spots.setAttribute('class', 'red')
-//   }
-// }
-
-// const spots = document.querySelector('.spot');
-
-// const renderNeighborhood = async () => {
-
-//   const response = await fetch('/api/neighborhood', {
-//       method: 'GET',
-//       headers: { 'Content-Type': 'application/json' },
-//   });
-
-//   if (response.ok) {
-
-//     const data = await response.json();
-//     console.log(data);
-
-//   } else {
-//       alert('Failed to load');
-//   }
-// };
+parkingLot.addEventListener('click', renderModal);
 
 // modal range will show the value in the input box
 function updateTextInput(val) {
   document.getElementById('textInput').value=val; 
 }
 
-// renderNeighborhood();
 updateTextInput();
-
-// module.exports = colorChange();

@@ -17,14 +17,13 @@
 </header>
 <main>
     <div class="modal fade" id="ModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-        {{#if parkingSpots.spot.spot_taken}}
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered taken">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalToggleLabel">This Spot is Taken!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body"> It will be available at : {{time_available}}</div>
+                <div class="modal-body timeDiv"> It will be available at : </div>
                 {{#if logged_in}}
                     <div class="modal-footer">
                         <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
@@ -38,8 +37,7 @@
                 {{/if}}
             </div>
             </div>
-        {{else}}
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-dialog-centered notTaken">
                 <div class="modal-content">
                     <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalToggleLabel2">This Spot is Available!</h5>
@@ -61,16 +59,15 @@
                     <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Park Here!</button>
                     </div>
                 </div>
-                </div>            
-            </div>
-        {{/if}}
-    <div class="container">
+            </div>          
+    </div>
+    <div class="container parkingLot">
         <div class="row">
             <div class="col-1"></div>
             <div class="col-1 black"></div>
 
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
+                <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-taken="{{parkingSpots.[0].spot_taken}}" data-time="{{parkingSpots.[0].time_available}}" data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
             </div>
             <div class="col-1 black top-horizontal">
                 <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
