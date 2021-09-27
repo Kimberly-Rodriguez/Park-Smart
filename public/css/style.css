@@ -52,7 +52,7 @@ section{
 
 
 
-.no-button {
+/* .no-button {
   background: none;
   border: none;
   padding: 0;
@@ -70,12 +70,22 @@ section{
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
+} */
+
+.green {
+
+  background-color: green;
+}
+
+.red {
+
+  background-color: red;
 }
 
 .aerial-road {
 
   background-image: url('../assets/img/aerial-road.jpg');
- 
+  padding-bottom: 40px;
 }
 
 header {

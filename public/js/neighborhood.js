@@ -1,6 +1,8 @@
 // const newFormHandler = async (event) => {
 //   event.preventDefault();
 
+const { ParkingSpot } = require("../../models");
+
 //   const name = document.querySelector('#project-name').value.trim();
 //   const needed_funding = document.querySelector('#project-funding').value.trim();
 //   const description = document.querySelector('#project-desc').value.trim();
@@ -38,70 +40,22 @@
 //   }
 // };
 
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+// const spots = document.querySelector('.spot');
 
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
+// function colorChange() {
 
-const one = document.querySelector('.one');
-const two = document.querySelector('.two');
-const three = document.querySelector('.three');
-const four = document.querySelector('.four');
-const five = document.querySelector('.five');
-const six = document.querySelector('.six');
-const seven = document.querySelector('.seven');
-const eight = document.querySelector('.eight');
-const nine = document.querySelector('.nine');
-const ten = document.querySelector('.ten');
-const eleven = document.querySelector('.eleven');
-const twelve = document.querySelector('.twelve');
-const thirteen = document.querySelector('.thirteen');
-const fourteen = document.querySelector('.fourteen');
-const fifteen = document.querySelector('.fifteen');
-const sixteen = document.querySelector('.sixteen');
-const seventeen = document.querySelector('.seventeen');
-const eighteen = document.querySelector('.eighteen');
-const nineteen = document.querySelector('.nineteen');
-const twenty = document.querySelector('.twenty');
-const twentyOne = document.querySelector('.twenty-one');
-const twentyTwo = document.querySelector('.twenty-two');
-const twentyThree = document.querySelector('.twenty-three');
-const twentyFour = document.querySelector('.twenty-four');
-
-spotArray = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty, twentyOne, twentyTwo, twentyThree, twentyFour]
-
-function modalDisplay() {
-
-  for (let i = 0; i < spotArray.length; i++) {
-
-    const spot = spotArray[i];
-    const taken = spot.getAttribute('data-taken')
+//   if (ParkingSpot.spot_taken === true) {
     
-    if (taken === 'taken') {
-      spot
-    }
-  }
-}
-
-
-// custom-handle (slider for time change ui.value)
-$( function() {
-  var handle = $( "#custom-handle" );
-  $( "#slider" ).slider({
-    create: function() {
-      handle.text( $( this ).slider( "value" ) );
-    },
-    slide: function( event, ui ) {
-      handle.text( ui.value );
-    }
-  });
-} );
-
-spotOne.addEventListener('click', modalDisplay);
+//     spots.setAttribute('class', 'red')
+//   }
+// }
 
 // modal range will show the value in the input box
 function updateTextInput(val) {
   document.getElementById('textInput').value=val; 
 }
+
+// colorChange();
+updateTextInput();
+
+// module.exports = colorChange();
