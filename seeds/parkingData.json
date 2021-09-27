@@ -11,7 +11,113 @@
     },
     {
       
+      "spot_taken": true,
+      "time_available": 1442
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 118
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 815
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 1101
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 1616
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 2323
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 1201
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 1355
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 1111
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 2002
+    },
+    {
+      
+      "spot_taken": false,
+      "time_available": null
+    },
+    {
+      
+      "spot_taken": true,
+      "time_available": 1341
+    },
+    {
+      
       "spot_taken": false,
       "time_available": null
     }
+
   ]
