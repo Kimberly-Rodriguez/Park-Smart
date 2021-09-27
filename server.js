@@ -30,12 +30,16 @@ app.use(session(sess));
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// middlewear to accept json in post and put request
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Joining the current directory with the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+//use the routes defined in the controller folder
 app.use(routes);
 
+//syincing data base to upload tables
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
