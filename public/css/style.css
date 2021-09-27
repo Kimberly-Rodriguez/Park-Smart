@@ -88,6 +88,13 @@ section{
   padding-bottom: 40px;
 }
 
+.SMstreet {
+
+  background-image: url('../assets/img/parking-spot.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
 header {
 
   height: 150px;
@@ -111,6 +118,29 @@ nav {
 
   float: right;
   line-height: 120px;
+}
+
+.logInForm {
+
+  width: 35%;
+  height: auto;
+  margin: 100px auto;
+}
+
+.logInCard {
+
+  margin: auto;
+}
+
+.login-button {
+
+  margin: 40px auto 10px;
+  text-align: center;
+}
+
+.signup-button {
+
+  margin-top: 10px;
 }
 
 main {
