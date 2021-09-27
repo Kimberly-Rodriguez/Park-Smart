@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 //localhost:3001/neighborhood
-router.get('/neighborhood', async (req, res) => {
+router.get('/neighborhood', withAuth, async (req, res) => {
   try {
     const spotData = await ParkingSpot.findAll({
       include: [{model: User}]
@@ -21,7 +21,7 @@ router.get('/neighborhood', async (req, res) => {
     const parkingSpots = spotData.map((spot) =>
       spot.get({ plain: true })
     );
-    // res.status(200).json(req);
+    // res.status(200).json(parkingSpots);
     res.render('neighborhood', { parkingSpots })
     // colorChange();
   } catch (err) {

@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 
 // This will lead us to the main neighborhood/ parking spot location address
 // localhost:3001/api/neighborhood
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   // find all ParkingSpot -- be sure to include its associated Category and Tag data
   try {
     const spotData = await ParkingSpot.findAll({

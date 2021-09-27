@@ -96,6 +96,11 @@ section{
   background-color: red;
 }
 
+.taken, .notTaken {
+
+  display: none;
+}
+
 .aerial-road {
 
   background-image: url('../assets/img/neighborhoodparking.jpeg');
