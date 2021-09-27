@@ -72,12 +72,12 @@ section{
   margin-left: -5px;
 } */
 
-.green {
+.false, .green {
 
   background-color: green;
 }
 
-.red {
+.true, .red {
 
   background-color: red;
 }

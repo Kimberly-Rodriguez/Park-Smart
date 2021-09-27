@@ -1,8 +1,6 @@
 // const newFormHandler = async (event) => {
 //   event.preventDefault();
 
-const { ParkingSpot } = require("../../models");
-
 //   const name = document.querySelector('#project-name').value.trim();
 //   const needed_funding = document.querySelector('#project-funding').value.trim();
 //   const description = document.querySelector('#project-desc').value.trim();
@@ -40,8 +38,6 @@ const { ParkingSpot } = require("../../models");
 //   }
 // };
 
-// const spots = document.querySelector('.spot');
-
 // function colorChange() {
 
 //   if (ParkingSpot.spot_taken === true) {
@@ -50,12 +46,31 @@ const { ParkingSpot } = require("../../models");
 //   }
 // }
 
+// const spots = document.querySelector('.spot');
+
+// const renderNeighborhood = async () => {
+
+//   const response = await fetch('/api/neighborhood', {
+//       method: 'GET',
+//       headers: { 'Content-Type': 'application/json' },
+//   });
+
+//   if (response.ok) {
+
+//     const data = await response.json();
+//     console.log(data);
+
+//   } else {
+//       alert('Failed to load');
+//   }
+// };
+
 // modal range will show the value in the input box
 function updateTextInput(val) {
   document.getElementById('textInput').value=val; 
 }
 
-// colorChange();
+// renderNeighborhood();
 updateTextInput();
 
 // module.exports = colorChange();

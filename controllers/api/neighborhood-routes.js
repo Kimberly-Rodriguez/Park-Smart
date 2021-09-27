@@ -12,8 +12,11 @@ router.get('/', async (req, res) => {
     const spotData = await ParkingSpot.findAll({
       include: [{model: User}]
     });
+    const parkingSpots = spotData.map((spot) =>
+      spot.get({ plain: true })
+    );
     // res.render('neighborhood')
-    res.status(200).json(spotData);
+    res.status(200).json(parkingSpots);
   } catch (err) {
     res.status(500).json(err);
   }
