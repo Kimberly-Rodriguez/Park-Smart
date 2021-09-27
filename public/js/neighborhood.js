@@ -28,12 +28,11 @@ function renderModal(event) {
       document.querySelector('.notTaken').style.display = 'block'
       document.querySelector('.taken').style.display = 'none'
 
-      const spotTakenPutButton = document.querySelector('.spotTakenPutRequest')
-      spotTakenPutButton.addEventListener('click', 'putRequest');
+      const spotTakenPutButton = document.querySelector('.spotTakenPutRequest');
 
       spotId = event.target.getAttribute('data-spot')
 
-      function putRequest() {
+      const putRequest = async () => {
         
         const spotTaken = document.querySelector('.spot_taken').checked;
         const timeAvailable = document.querySelector('.time_available').value;
@@ -54,6 +53,8 @@ function renderModal(event) {
           alert('Failed to add dish');
         }
       }
+
+      spotTakenPutButton.addEventListener('click', putRequest);
     }
   }
 }
