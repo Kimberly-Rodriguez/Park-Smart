@@ -2,17 +2,18 @@ const router = require('express').Router();
 const { ParkingSpot, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// The `/api/ParkingSpot` endpoint
+// The `/api/neighborhood` endpoint
 
 // This will lead us to the main neighborhood/ parking spot location address
 // localhost:3001/api/neighborhood
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   // find all ParkingSpot -- be sure to include its associated Category and Tag data
   try {
-    const keyData = await ParkingSpot.findAll({
+    const spotData = await ParkingSpot.findAll({
       include: [{model: User}]
     });
-    res.status(200).json(keyData);
+    // res.render('neighborhood')
+    res.status(200).json(spotData);
   } catch (err) {
     res.status(500).json(err);
   }

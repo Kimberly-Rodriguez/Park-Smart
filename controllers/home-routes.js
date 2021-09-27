@@ -11,16 +11,17 @@ router.get('/', (req, res) => {
     res.status(500).json(err)
   }
 });
-// //localhost:3001/neighborhood
-// router.get('/neighborhood', withAuth, (req, res) => {
-//   try {
-//     res.status(200).json(req);
-//     // res.render('neighborhood')
-//     // colorChange();
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// });
+
+//localhost:3001/neighborhood
+router.get('/neighborhood', (req, res) => {
+  try {
+    // res.status(200).json(req);
+    res.redirect('neighborhood')
+    // colorChange();
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
 
 router.get('/login', (req, res) => {
   try {
