@@ -43,7 +43,7 @@ router.get('/:id', async (req, res) => {
 // update ParkingSpot
 router.put('/:id', async (req, res) => {
   // update ParkingSpot data
-  const updateParkingSpot = await ParkingSpot.update(req.body,
+  const updateParkingSpot = await ParkingSpot.update(
     
     {
       // All the fields you can update and the data attached to the request body.
@@ -55,13 +55,12 @@ router.put('/:id', async (req, res) => {
     where: {
       id: req.params.id
     },
-  })
-   
-    .then((updatedParkingSpotTags) => res.status(200).json(updatedParkingSpotTags))
-    .catch((err) => {
-      // console.log(err);
-      res.status(400).json(err);
-    });
+  });
+    // .catch((err) => {
+    //   // console.log(err);
+    //   res.status(400).json(err);
+    // });
+    res.json(updateParkingSpot);
 });
 
 
