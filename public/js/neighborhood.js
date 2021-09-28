@@ -64,9 +64,13 @@ function renderModal(event) {
             },
           });
           if (response.ok) {
-            window.location.reload();
+
+            console.log(time);
+            console.log(timeAvailable);
+            //replace document with the same page
+            document.location.replace('/neighborhood')
           } else {
-            alert('Failed to update spot');
+            response.json(err);
           }
         }
       }
