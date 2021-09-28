@@ -51,7 +51,7 @@ router.put('/:id', async (req, res) => {
         time_available: req.body.time_available,
         user_id: req.session.user_id
       },
-    {
+      {
       where: {
         id: req.params.id
       },
@@ -61,8 +61,5 @@ router.put('/:id', async (req, res) => {
     res.status(500).json(err)
   }
 });
-
-
-
 
 module.exports = router;

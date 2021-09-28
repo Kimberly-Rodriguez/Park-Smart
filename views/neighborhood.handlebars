@@ -25,17 +25,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body"> It will be available at : <span class="timeDiv"></span></div>
-                {{#if logged_in}}
-                    <div class="modal-footer">
-                        <label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
-                        <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
-                        {{!-- this will be a put route that updates the parkingspot.time_available where user_id matches the user(id) in session --}}
-                        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit My Time</button>
-                        <span>OR</span>
-                        {{!-- this will be a put route that updates the parkingspot.spot_taken value to false --}}
-                        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">I'm Leaving</button>
-                    </div>
-                {{/if}}
+                <div class="modal-footer userIdDiv">
+                    {{!-- 'edit time button' will be a put route that updates the parkingspot.time_available where user_id matches the user(id) in session --}}
+                    {{!-- 'im leaving button' will be a put route that updates the parkingspot.spot_taken value to false --}}
+                </div>
             </div>
             </div>
             <div class="modal-dialog modal-dialog-centered notTaken">
@@ -71,7 +64,7 @@
                 <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-taken="{{parkingSpots.[0].spot_taken}}" data-time="{{parkingSpots.[0].time_available}}" data-spot=1 data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-taken="{{parkingSpots.[1].spot_taken}}" data-time="{{parkingSpots.[1].time_available}}" data-spot=2 data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
+                <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-taken="{{parkingSpots.[1].spot_taken}}" data-time="{{parkingSpots.[1].time_available}}" data-spot=2 data-user="{{parkingSpots.[1].user_id}}"data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
             </div>
             <div class="col-1 black top-horizontal">
                 <a class="w-100 btn {{parkingSpots.[2].spot_taken}} spot" data-taken="{{parkingSpots.[2].spot_taken}}" data-time="{{parkingSpots.[2].time_available}}" data-spot=3 data-bs-toggle="modal" href="#ModalToggle" role="button">3</a>
