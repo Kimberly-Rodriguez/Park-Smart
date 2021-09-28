@@ -42,20 +42,24 @@ router.get('/:id', async (req, res) => {
 
 // update ParkingSpot
 router.put('/:id', async (req, res) => {
-  const updateParkingSpot = await ParkingSpot.update(
-    
+  // update ParkingSpot data
+  try {
+    const updateParkingSpot = await ParkingSpot.update(
+      {
+        // All the fields you can update and the data attached to the request body.
+        spot_taken: req.body.spot_taken,
+        time_available: req.body.time_available,
+        user_id: req.session.user_id
+      },
     {
-      // All the fields you can update and the data attached to the request body.
-      spot_taken: req.body.spot_taken,
-      time_available: req.body.time_available,
-      user_id: req.session.user_id
-    },
-   {
-    where: {
-      id: req.params.id
-    },
-  });
-    res.json(updateParkingSpot);
+      where: {
+        id: req.params.id
+      },
+    });
+    res.status(200).json({message: 'Success!'});
+  } catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 
