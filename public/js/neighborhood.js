@@ -43,10 +43,86 @@ function renderModal(event) {
         userView.innerHTML = '';
         userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
         <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
-        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit My Time</button>
+        <button class="btn btn-danger editbtn" data-bs-toggle="modal">Edit My Time</button>
         <span>OR</span>
-        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">I'm Leaving</button>`
+        <button class="btn btn-danger leavebtn" data-bs-toggle="modal">I'm Leaving</button>`
+       
+
+        // putRequest 1
+        const putRequest01 = async () => {
+        
+          const spotTaken = document.querySelector('.spot_taken').checked;
+          const timeInput = document.querySelector('.time_available').value;
+  
+          const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
+          
+          if (timeAvailable) {
+  
+            const response = await fetch(`/api/neighborhood/${spotId}`, {
+              method: 'PUT',
+              body: JSON.stringify({
+                spot_taken: spotTaken,
+                time_available: timeAvailable,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+            if (response.ok) {
+  
+              console.log(time);
+              console.log(timeAvailable);
+              //replace document with the same page
+              document.location.replace('/neighborhood')
+            } else {
+              response.json(err);
+            }
+          }
+  
+        }
+  
+        editbtn.addEventListener('click', putRequest01);
+
+        //put Request 2
+
+        const putRequest02 = async () => {
+        
+          const spotTaken = document.querySelector('.spot_taken').checked;
+          const timeInput = document.querySelector('.time_available').value;
+  
+          const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
+          
+          if (timeAvailable) {
+  
+            const response = await fetch(`/api/neighborhood/${spotId}`, {
+              method: 'PUT',
+              body: JSON.stringify({
+                spot_taken: spotTaken,
+                time_available: timeAvailable,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+            if (response.ok) {
+  
+              console.log(time);
+              console.log(timeAvailable);
+              //replace document with the same page
+              document.location.replace('/neighborhood')
+            } else {
+              response.json(err);
+            }
+          }
+  
+        }
+        leavebtn.addEventListener('click', putRequest02);
       }
+      
+      
+
+      spotTakenPutButton.addEventListener('click', putRequest);
+    }
 
     } else {
 
@@ -86,12 +162,13 @@ function renderModal(event) {
             response.json(err);
           }
         }
+
       }
 
       spotTakenPutButton.addEventListener('click', putRequest);
     }
   }
-}
+
 
 parkingLot.addEventListener('click', renderModal);
 
