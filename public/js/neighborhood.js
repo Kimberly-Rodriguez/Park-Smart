@@ -42,7 +42,7 @@ function renderModal(event) {
       console.log(userIdClass);
       let userView;
       console.log(userId);
-      if (userId === userIdClass) {
+      if (userIdClass === userId) {
 
          userView = document.querySelector('.userIdDiv');
         userView.innerHTML = '';
