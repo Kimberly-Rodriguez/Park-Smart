@@ -1,12 +1,10 @@
 const parkingLot = document.querySelector('.parkingLot');
 
 let spotId;
-let time = moment().format("m");
 
 function renderModal(event) {
   
   event.preventDefault();
-  console.log(event.target);
 
   if (event.target.matches('a')) {
 
@@ -22,8 +20,6 @@ function renderModal(event) {
       timeEl.innerHTML = '';
       timeEl.textContent = timeAttribute;
 
-      
-
     } else {
 
       document.querySelector('.notTaken').style.display = 'block'
@@ -38,8 +34,7 @@ function renderModal(event) {
         const spotTaken = document.querySelector('.spot_taken').checked;
         const timeInput = document.querySelector('.time_available').value;
 
-        const minuteAvailable = moment(timeInput).format("m");
-        const timeAvailable = (time + minuteAvailable)
+        const timeAvailable = moment().add(timeInput, 'minutes').format("h:m A");
         
         if (timeAvailable) {
 
@@ -54,11 +49,9 @@ function renderModal(event) {
             },
           });
           if (response.ok) {
-            console.log(time);
-            console.log(timeAvailable);
             window.location.reload();
           } else {
-            alert('Failed to add dish');
+            alert('Failed to update spot');
           }
         }
       }
