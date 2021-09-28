@@ -36,8 +36,10 @@ function renderModal(event) {
       timeEl.textContent = timeAttribute;
 
       const userId = event.target.getAttribute('data-user');
+      const userIdClass = document.querySelector('.userIdDiv').getAttribute('data-user');
+      console.log(userIdClass);
       console.log(userId);
-      if (userId === user_id) {
+      if (userId === userIdClass) {
 
         const userView = document.querySelector('.userIdDiv');
         userView.innerHTML = '';
@@ -153,11 +155,8 @@ function renderModal(event) {
             },
           });
           if (response.ok) {
-
-            console.log(time);
-            console.log(timeAvailable);
             //replace document with the same page
-            document.location.replace('/neighborhood')
+            // document.location.replace('/neighborhood')
           } else {
             response.json(err);
           }

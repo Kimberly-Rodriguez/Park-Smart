@@ -21,8 +21,9 @@ router.get('/neighborhood', withAuth, async (req, res) => {
     const parkingSpots = spotData.map((spot) =>
       spot.get({ plain: true })
     );
+    console.log(req.session.user_id);
     // res.status(200).json(parkingSpots);
-    res.render('neighborhood', { parkingSpots , logged_in: req.session.logged_in, user_id: req.session.user_id } )
+    res.render('neighborhood', { parkingSpots , logged_in: req.session.logged_in, userId: req.session.user_id } )
     // colorChange();
   } catch (err) {
     res.status(500).json(err)
