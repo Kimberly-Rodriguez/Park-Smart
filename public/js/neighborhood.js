@@ -42,17 +42,21 @@ function renderModal(event) {
       console.log(userIdClass);
       let userView;
       console.log(userId);
+      userView = document.querySelector('.userIdDiv');
+
       if (userIdClass === userId) {
 
-         userView = document.querySelector('.userIdDiv');
         userView.innerHTML = '';
         userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input class="timeavailable" type="text" id="textInput"
-         value=""><label>&nbsp; minutes</label>
+        value=""><label>&nbsp; minutes</label>
         <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
         <button class="btn btn-danger editbtn" data-bs-toggle="modal">Edit My Time</button>
         <span>OR</span>
         <button class="btn btn-danger leavebtn" data-bs-toggle="modal">I'm Leaving</button>`
-       
+      } else {
+
+        userView.innerHTML = '';
+      }
 
         // putRequest 1
         const putRequest01 = async (event) => {
@@ -98,11 +102,9 @@ function renderModal(event) {
             }
 
         }
-        }
   
         userView.addEventListener('click', putRequest01);
 
-      // spotTakenPutButton.addEventListener('click', putRequest);
     }
 
     } else {
