@@ -23,6 +23,8 @@ function renderModal(event) {
 
   if (event.target.matches('a')) {
 
+    spotId = event.target.getAttribute('data-spot')
+
     const dataAttribute = event.target.getAttribute('data-taken')
 
     if (dataAttribute === 'true') {
@@ -38,17 +40,70 @@ function renderModal(event) {
       const userId = event.target.getAttribute('data-user');
       const userIdClass = document.querySelector('.userIdDiv').getAttribute('data-user');
       console.log(userIdClass);
+      let userView;
       console.log(userId);
       if (userIdClass === userId) {
 
-        const userView = document.querySelector('.userIdDiv');
+         userView = document.querySelector('.userIdDiv');
         userView.innerHTML = '';
-        userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+        userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input class="timeavailable" type="text" id="textInput"
+         value=""><label>&nbsp; minutes</label>
         <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
-        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit My Time</button>
+        <button class="btn btn-danger editbtn" data-bs-toggle="modal">Edit My Time</button>
         <span>OR</span>
-        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">I'm Leaving</button>`
-      }
+        <button class="btn btn-danger leavebtn" data-bs-toggle="modal">I'm Leaving</button>`
+       
+
+        // putRequest 1
+        const putRequest01 = async (event) => {
+
+        
+          const timeInput = document.querySelector('.timeavailable').value;
+  
+          const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
+          if (event.target.matches('.editbtn')) {
+            const response = await fetch(`/api/neighborhood/${spotId}`, {
+              method: 'PUT',
+              body: JSON.stringify({
+                time_available: timeAvailable,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+            if (response.ok) {
+              //replace document with the same page
+              document.location.replace('/neighborhood')
+            } else {
+              response.json(err);
+            }
+
+
+        } else if (event.target.matches('.leavebtn')) {
+
+            const response = await fetch(`/api/neighborhood/${spotId}`, {
+              method: 'PUT',
+              body: JSON.stringify({
+                spot_taken: false,
+              }),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            });
+            if (response.ok) {
+              //replace document with the same page
+              document.location.replace('/neighborhood')
+            } else {
+              response.json(err);
+            }
+
+        }
+        }
+  
+        userView.addEventListener('click', putRequest01);
+
+      // spotTakenPutButton.addEventListener('click', putRequest);
+    }
 
     } else {
 
@@ -85,6 +140,7 @@ function renderModal(event) {
             response.json(err);
           }
         }
+
       }
 
       spotTakenPutButton.addEventListener('click', putRequest);
