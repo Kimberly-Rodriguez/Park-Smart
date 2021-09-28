@@ -15,10 +15,23 @@ function renderModal(event) {
       document.querySelector('.taken').style.display = 'block'
       document.querySelector('.notTaken').style.display = 'none'
       
-      const timeAttribute = event.target.getAttribute('data-time')
+      const timeAttribute = event.target.getAttribute('data-time');
       const timeEl = document.querySelector('.timeDiv');
       timeEl.innerHTML = '';
       timeEl.textContent = timeAttribute;
+
+      const userId = event.target.getAttribute('data-user');
+      console.log(userId);
+      if (userId === user_id) {
+
+        const userView = document.querySelector('.userIdDiv');
+        userView.innerHTML = '';
+        userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+        <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
+        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Edit My Time</button>
+        <span>OR</span>
+        <button class="btn btn-danger" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">I'm Leaving</button>`
+      }
 
     } else {
 
@@ -34,7 +47,7 @@ function renderModal(event) {
         const spotTaken = document.querySelector('.spot_taken').checked;
         const timeInput = document.querySelector('.time_available').value;
 
-        const timeAvailable = moment().add(timeInput, 'minutes').format("h:m A");
+        const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
         
         if (timeAvailable) {
 
