@@ -23,6 +23,8 @@ function renderModal(event) {
 
   if (event.target.matches('a')) {
 
+    spotId = event.target.getAttribute('data-spot')
+
     const dataAttribute = event.target.getAttribute('data-taken')
 
     if (dataAttribute === 'true') {
@@ -38,12 +40,14 @@ function renderModal(event) {
       const userId = event.target.getAttribute('data-user');
       const userIdClass = document.querySelector('.userIdDiv').getAttribute('data-user');
       console.log(userIdClass);
+      let userView;
       console.log(userId);
       if (userId === userIdClass) {
 
-        const userView = document.querySelector('.userIdDiv');
+         userView = document.querySelector('.userIdDiv');
         userView.innerHTML = '';
-        userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input type="text" id="textInput" value=""><label>&nbsp; minutes</label>
+        userView.innerHTML = `<label for="customRange3" class="form-label">I will be leaving in &nbsp;</label><input class="timeavailable" type="text" id="textInput"
+         value=""><label>&nbsp; minutes</label>
         <input type="range" name="rangeInput" class="form-range" min="0" max="300" id="customRange3" onchange="updateTextInput(this.value);">
         <button class="btn btn-danger editbtn" data-bs-toggle="modal">Edit My Time</button>
         <span>OR</span>
@@ -51,19 +55,16 @@ function renderModal(event) {
        
 
         // putRequest 1
-        const putRequest01 = async () => {
+        const putRequest01 = async (event) => {
+
         
-          const spotTaken = document.querySelector('.spot_taken').checked;
-          const timeInput = document.querySelector('.time_available').value;
+          const timeInput = document.querySelector('.timeavailable').value;
   
           const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
-          
-          if (timeAvailable) {
-  
+          if (event.target.matches('.editbtn')) {
             const response = await fetch(`/api/neighborhood/${spotId}`, {
               method: 'PUT',
               body: JSON.stringify({
-                spot_taken: spotTaken,
                 time_available: timeAvailable,
               }),
               headers: {
@@ -71,59 +72,37 @@ function renderModal(event) {
               },
             });
             if (response.ok) {
-  
-              console.log(time);
-              console.log(timeAvailable);
               //replace document with the same page
               document.location.replace('/neighborhood')
             } else {
               response.json(err);
             }
-          }
-  
-        }
-  
-        editbtn.addEventListener('click', putRequest01);
 
-        //put Request 2
 
-        const putRequest02 = async () => {
-        
-          const spotTaken = document.querySelector('.spot_taken').checked;
-          const timeInput = document.querySelector('.time_available').value;
-  
-          const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
-          
-          if (timeAvailable) {
-  
+        } else if (event.target.matches('.leavebtn')) {
+
             const response = await fetch(`/api/neighborhood/${spotId}`, {
               method: 'PUT',
               body: JSON.stringify({
-                spot_taken: spotTaken,
-                time_available: timeAvailable,
+                spot_taken: false,
               }),
               headers: {
                 'Content-Type': 'application/json',
               },
             });
             if (response.ok) {
-  
-              console.log(time);
-              console.log(timeAvailable);
               //replace document with the same page
               document.location.replace('/neighborhood')
             } else {
               response.json(err);
             }
-          }
-  
-        }
-        leavebtn.addEventListener('click', putRequest02);
-      }
-      
-      
 
-      spotTakenPutButton.addEventListener('click', putRequest);
+        }
+        }
+  
+        userView.addEventListener('click', putRequest01);
+
+      // spotTakenPutButton.addEventListener('click', putRequest);
     }
 
     } else {
@@ -156,7 +135,7 @@ function renderModal(event) {
           });
           if (response.ok) {
             //replace document with the same page
-            // document.location.replace('/neighborhood')
+            document.location.replace('/neighborhood')
           } else {
             response.json(err);
           }
@@ -167,7 +146,7 @@ function renderModal(event) {
       spotTakenPutButton.addEventListener('click', putRequest);
     }
   }
-
+}
 
 parkingLot.addEventListener('click', renderModal);
 
