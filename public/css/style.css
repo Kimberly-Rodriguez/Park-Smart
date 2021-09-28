@@ -369,11 +369,13 @@ video.bg-video {
 
 @media (min-width: 992px) {
   .social-icons {
-    position: absolute;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* position: absolute;
     height: 100%;
     top: 0;
     right: 2.5rem;
-    width: auto;
+    width: auto; */
   }
 }
 

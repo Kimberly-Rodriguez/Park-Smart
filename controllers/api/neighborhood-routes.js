@@ -42,7 +42,6 @@ router.get('/:id', async (req, res) => {
 
 // update ParkingSpot
 router.put('/:id', async (req, res) => {
-  // update ParkingSpot data
   const updateParkingSpot = await ParkingSpot.update(
     
     {
@@ -56,10 +55,6 @@ router.put('/:id', async (req, res) => {
       id: req.params.id
     },
   });
-    // .catch((err) => {
-    //   // console.log(err);
-    //   res.status(400).json(err);
-    // });
     res.json(updateParkingSpot);
 });
 
