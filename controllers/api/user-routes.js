@@ -16,13 +16,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// create a put route 
-// when you send the put resquest time:req.body 
-// userid = user(whatever the user is using)
-// put request (compare parking spot with park session)
-// session ==== parkingspot
-// pass time with req body 
-// userid session = gets the id value 
 
 router.post('/login', async (req, res) => {
   try {
@@ -53,6 +46,17 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+// http://localhost:3001/api/users/logout
+router.post('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
