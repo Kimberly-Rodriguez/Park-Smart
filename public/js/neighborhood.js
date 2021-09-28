@@ -56,7 +56,7 @@ function renderModal(event) {
           if (response.ok) {
             console.log(time);
             console.log(timeAvailable);
-            // window.location.reload();
+            window.location.reload();
           } else {
             alert('Failed to add dish');
           }
