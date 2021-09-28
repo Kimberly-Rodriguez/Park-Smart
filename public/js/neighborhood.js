@@ -71,9 +71,10 @@ function renderModal(event) {
           if (response.ok) {
             console.log(time);
             console.log(timeAvailable);
-            window.location.reload();
+            //replace document with the same page
+            document.location.replace('/neighborhood')
           } else {
-            alert('Failed to add dish');
+            response.json(err);
           }
         }
       }
