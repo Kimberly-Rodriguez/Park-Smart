@@ -39,7 +39,7 @@ function renderModal(event) {
       const userIdClass = document.querySelector('.userIdDiv').getAttribute('data-user');
       console.log(userIdClass);
       console.log(userId);
-      if (userId === userIdClass) {
+      if (userIdClass === userId) {
 
         const userView = document.querySelector('.userIdDiv');
         userView.innerHTML = '';
@@ -80,7 +80,7 @@ function renderModal(event) {
           });
           if (response.ok) {
             //replace document with the same page
-            // document.location.replace('/neighborhood')
+            document.location.replace('/neighborhood')
           } else {
             response.json(err);
           }
