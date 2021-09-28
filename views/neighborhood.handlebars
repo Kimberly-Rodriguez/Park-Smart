@@ -25,7 +25,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body"> It will be available at : <span class="timeDiv"></span></div>
-                <div class="modal-footer userIdDiv">
+                <div class="modal-footer userIdDiv" data-user="{{userId}}">
                     {{!-- 'edit time button' will be a put route that updates the parkingspot.time_available where user_id matches the user(id) in session --}}
                     {{!-- 'im leaving button' will be a put route that updates the parkingspot.spot_taken value to false --}}
                 </div>
@@ -61,28 +61,28 @@
             <div class="col-1 black"></div>
 
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-taken="{{parkingSpots.[0].spot_taken}}" data-time="{{parkingSpots.[0].time_available}}" data-spot=1 data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
+                <a class="w-100 btn {{parkingSpots.[0].spot_taken}} spot" data-taken="{{parkingSpots.[0].spot_taken}}" data-time="{{parkingSpots.[0].time_available}}" data-spot=1 data-user="{{parkingSpots.[0].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">1</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-taken="{{parkingSpots.[1].spot_taken}}" data-time="{{parkingSpots.[1].time_available}}" data-spot=2 data-user="{{parkingSpots.[1].user_id}}"data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
+                <a class="w-100 btn {{parkingSpots.[1].spot_taken}} spot" data-taken="{{parkingSpots.[1].spot_taken}}" data-time="{{parkingSpots.[1].time_available}}" data-spot=2 data-user="{{parkingSpots.[1].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">2</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[2].spot_taken}} spot" data-taken="{{parkingSpots.[2].spot_taken}}" data-time="{{parkingSpots.[2].time_available}}" data-spot=3 data-bs-toggle="modal" href="#ModalToggle" role="button">3</a>
+                <a class="w-100 btn {{parkingSpots.[2].spot_taken}} spot" data-taken="{{parkingSpots.[2].spot_taken}}" data-time="{{parkingSpots.[2].time_available}}" data-spot=3 data-user="{{parkingSpots.[2].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">3</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[3].spot_taken}} spot" data-taken="{{parkingSpots.[3].spot_taken}}" data-time="{{parkingSpots.[3].time_available}}" data-spot=4 data-bs-toggle="modal" href="#ModalToggle" role="button">4</a>
+                <a class="w-100 btn {{parkingSpots.[3].spot_taken}} spot" data-taken="{{parkingSpots.[3].spot_taken}}" data-time="{{parkingSpots.[3].time_available}}" data-spot=4 data-user="{{parkingSpots.[3].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">4</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[4].spot_taken}} spot" data-taken="{{parkingSpots.[4].spot_taken}}" data-time="{{parkingSpots.[4].time_available}}" data-spot=5 data-bs-toggle="modal" href="#ModalToggle" role="button">5</a>
+                <a class="w-100 btn {{parkingSpots.[4].spot_taken}} spot" data-taken="{{parkingSpots.[4].spot_taken}}" data-time="{{parkingSpots.[4].time_available}}" data-spot=5 data-user="{{parkingSpots.[4].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">5</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[5].spot_taken}} spot" data-taken="{{parkingSpots.[5].spot_taken}}" data-time="{{parkingSpots.[5].time_available}}" data-spot=6 data-bs-toggle="modal" href="#ModalToggle" role="button">6</a>
+                <a class="w-100 btn {{parkingSpots.[5].spot_taken}} spot" data-taken="{{parkingSpots.[5].spot_taken}}" data-time="{{parkingSpots.[5].time_available}}" data-spot=6 data-user="{{parkingSpots.[5].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">6</a>
             </div>
             <div class="col-1 black top-horizontal">
-                <a class="w-100 btn {{parkingSpots.[6].spot_taken}} spot" data-taken="{{parkingSpots.[6].spot_taken}}" data-time="{{parkingSpots.[6].time_available}}" data-spot=7 data-bs-toggle="modal" href="#ModalToggle" role="button">7</a>
+                <a class="w-100 btn {{parkingSpots.[6].spot_taken}} spot" data-taken="{{parkingSpots.[6].spot_taken}}" data-time="{{parkingSpots.[6].time_available}}" data-spot=7 data-user="{{parkingSpots.[6].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">7</a>
             </div>
             <div class="col-1 black top-horizontal right-white">
-                <a class="w-100 btn {{parkingSpots.[7].spot_taken}} spot" data-taken="{{parkingSpots.[7].spot_taken}}" data-time="{{parkingSpots.[7].time_available}}" data-spot=8 data-bs-toggle="modal" href="#ModalToggle" role="button">8</a>
+                <a class="w-100 btn {{parkingSpots.[7].spot_taken}} spot" data-taken="{{parkingSpots.[7].spot_taken}}" data-time="{{parkingSpots.[7].time_available}}" data-spot=8 data-user="{{parkingSpots.[7].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">8</a>
             </div>
             <div class="col-1 black"></div>
             <div class="col-1"></div>
@@ -90,44 +90,44 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-1 black left-horizontal top-white">
-                <a class="w-100 top-margin vertical-button twenty-four btn {{parkingSpots.[23].spot_taken}} spot" data-taken="{{parkingSpots.[23].spot_taken}}" data-time="{{parkingSpots.[23].time_available}}" data-spot=24 data-bs-toggle="modal" href="#ModalToggle" role="button">24</a>
+                <a class="w-100 top-margin vertical-button twenty-four btn {{parkingSpots.[23].spot_taken}} spot" data-taken="{{parkingSpots.[23].spot_taken}}" data-time="{{parkingSpots.[23].time_available}}" data-spot=24 data-user="{{parkingSpots.[23].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">24</a>
             </div>
             <div class="col-8"></div>
             <div class="col-1 black right-horizontal top-white">
-                <a class="w-100 top-margin vertical-button nine btn {{parkingSpots.[8].spot_taken}} spot" data-taken="{{parkingSpots.[8].spot_taken}}" data-time="{{parkingSpots.[8].time_available}}" data-spot=9 data-bs-toggle="modal" href="#ModalToggle" role="button">9</a>
+                <a class="w-100 top-margin vertical-button nine btn {{parkingSpots.[8].spot_taken}} spot" data-taken="{{parkingSpots.[8].spot_taken}}" data-time="{{parkingSpots.[8].time_available}}" data-spot=9 data-user="{{parkingSpots.[8].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">9</a>
             </div>
             <div class="col-1"></div>
         </div>
         <div class="row">
             <div class="col-1"></div>
             <div class="col-1 black left-horizontal top-white">
-                <a class="w-100 top-margin vertical-button twenty-three btn {{parkingSpots.[22].spot_taken}} spot" data-taken="{{parkingSpots.[22].spot_taken}}" data-time="{{parkingSpots.[22].time_available}}" data-spot=23 data-bs-toggle="modal" href="#ModalToggle" role="button">23</a>
+                <a class="w-100 top-margin vertical-button twenty-three btn {{parkingSpots.[22].spot_taken}} spot" data-taken="{{parkingSpots.[22].spot_taken}}" data-time="{{parkingSpots.[22].time_available}}" data-spot=23 data-user="{{parkingSpots.[22].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">23</a>
             </div>
             <div class="col-8 welcome fst-italic lh-1 mb-4"></div>
             <div class="col-1 black right-horizontal top-white">
-                <a class="w-100 top-margin vertical-button ten btn {{parkingSpots.[9].spot_taken}} spot" data-taken="{{parkingSpots.[9].spot_taken}}" data-time="{{parkingSpots.[9].time_available}}" data-spot=10 data-bs-toggle="modal" href="#ModalToggle" role="button">10</a>
+                <a class="w-100 top-margin vertical-button ten btn {{parkingSpots.[9].spot_taken}} spot" data-taken="{{parkingSpots.[9].spot_taken}}" data-time="{{parkingSpots.[9].time_available}}" data-spot=10 data-user="{{parkingSpots.[9].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">10</a>
             </div>
             <div class="col-1"></div>
         </div>
         <div class="row">
             <div class="col-1"></div>
             <div class="col-1 black left-horizontal top-white">
-                <a class="w-100 top-margin vertical-button twenty-two btn {{parkingSpots.[21].spot_taken}} spot" data-taken="{{parkingSpots.[21].spot_taken}}" data-time="{{parkingSpots.[21].time_available}}" data-spot=22 data-bs-toggle="modal" href="#ModalToggle" role="button">22</a>
+                <a class="w-100 top-margin vertical-button twenty-two btn {{parkingSpots.[21].spot_taken}} spot" data-taken="{{parkingSpots.[21].spot_taken}}" data-time="{{parkingSpots.[21].time_available}}" data-spot=22 data-user="{{parkingSpots.[21].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">22</a>
             </div>
             <div class="col-8" style="text-align:center; font-size: 40px;"></div>
             <div class="col-1 black right-horizontal top-white">
-                <a class="w-100 top-margin vertical-button eleven btn {{parkingSpots.[10].spot_taken}} spot" data-taken="{{parkingSpots.[10].spot_taken}}" data-time="{{parkingSpots.[10].time_available}}" data-spot=11 data-bs-toggle="modal" href="#ModalToggle" role="button">11</a>
+                <a class="w-100 top-margin vertical-button eleven btn {{parkingSpots.[10].spot_taken}} spot" data-taken="{{parkingSpots.[10].spot_taken}}" data-time="{{parkingSpots.[10].time_available}}" data-spot=11 data-user="{{parkingSpots.[10].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">11</a>
             </div>
             <div class="col-1"></div>
         </div>
         <div class="row">
             <div class="col-1"></div>
             <div class="col-1 black left-horizontal top-white bottom-white">
-                <a class="w-100 top-margin vertical-button twenty-one btn {{parkingSpots.[20].spot_taken}} spot" data-taken="{{parkingSpots.[20].spot_taken}}" data-time="{{parkingSpots.[20].time_available}}" data-spot=21 data-bs-toggle="modal" href="#ModalToggle" role="button">21</a>
+                <a class="w-100 top-margin vertical-button twenty-one btn {{parkingSpots.[20].spot_taken}} spot" data-taken="{{parkingSpots.[20].spot_taken}}" data-time="{{parkingSpots.[20].time_available}}" data-spot=21 data-user="{{parkingSpots.[20].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">21</a>
             </div>
             <div class="col-8"></div>
             <div class="col-1 black right-horizontal top-white bottom-white">
-                <a class="w-100 top-margin vertical-button twelve btn {{parkingSpots.[11].spot_taken}} spot" data-taken="{{parkingSpots.[11].spot_taken}}" data-time="{{parkingSpots.[11].time_available}}" data-spot=12 data-bs-toggle="modal" href="#ModalToggle" role="button">12</a>
+                <a class="w-100 top-margin vertical-button twelve btn {{parkingSpots.[11].spot_taken}} spot" data-taken="{{parkingSpots.[11].spot_taken}}" data-time="{{parkingSpots.[11].time_available}}" data-spot=12 data-user="{{parkingSpots.[11].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">12</a>
             </div>
             <div class="col-1"></div>
         </div>
@@ -135,28 +135,28 @@
             <div class="col-1"></div>
             <div class="col-1 black"></div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 twenty btn {{parkingSpots.[19].spot_taken}} spot" data-taken="{{parkingSpots.[19].spot_taken}}" data-time="{{parkingSpots.[19].time_available}}" data-spot=20 data-bs-toggle="modal" href="#ModalToggle" role="button">20</a>
+                <a class="w-100 twenty btn {{parkingSpots.[19].spot_taken}} spot" data-taken="{{parkingSpots.[19].spot_taken}}" data-time="{{parkingSpots.[19].time_available}}" data-spot=20 data-user="{{parkingSpots.[19].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">20</a>
             </div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 nineteen btn {{parkingSpots.[18].spot_taken}} spot" data-taken="{{parkingSpots.[18].spot_taken}}" data-time="{{parkingSpots.[18].time_available}}" data-spot=19 data-bs-toggle="modal" href="#ModalToggle" role="button">19</a>
+                <a class="w-100 nineteen btn {{parkingSpots.[18].spot_taken}} spot" data-taken="{{parkingSpots.[18].spot_taken}}" data-time="{{parkingSpots.[18].time_available}}" data-spot=19 data-user="{{parkingSpots.[18].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">19</a>
             </div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 eighteen btn {{parkingSpots.[17].spot_taken}} spot" data-taken="{{parkingSpots.[17].spot_taken}}" data-time="{{parkingSpots.[17].time_available}}" data-spot=18 data-bs-toggle="modal" href="#ModalToggle" role="button">18</a>
+                <a class="w-100 eighteen btn {{parkingSpots.[17].spot_taken}} spot" data-taken="{{parkingSpots.[17].spot_taken}}" data-time="{{parkingSpots.[17].time_available}}" data-spot=18 data-user="{{parkingSpots.[17].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">18</a>
             </div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 seventeen btn {{parkingSpots.[16].spot_taken}} spot" data-taken="{{parkingSpots.[16].spot_taken}}" data-time="{{parkingSpots.[16].time_available}}" data-spot=17 data-bs-toggle="modal" href="#ModalToggle" role="button">17</a>
+                <a class="w-100 seventeen btn {{parkingSpots.[16].spot_taken}} spot" data-taken="{{parkingSpots.[16].spot_taken}}" data-time="{{parkingSpots.[16].time_available}}" data-spot=17 data-user="{{parkingSpots.[16].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">17</a>
             </div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 sixteen btn {{parkingSpots.[15].spot_taken}} spot" data-taken="{{parkingSpots.[15].spot_taken}}" data-time="{{parkingSpots.[15].time_available}}" data-spot=16 data-bs-toggle="modal" href="#ModalToggle" role="button">16</a>
+                <a class="w-100 sixteen btn {{parkingSpots.[15].spot_taken}} spot" data-taken="{{parkingSpots.[15].spot_taken}}" data-time="{{parkingSpots.[15].time_available}}" data-spot=16 data-user="{{parkingSpots.[15].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">16</a>
             </div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 fifteen btn {{parkingSpots.[14].spot_taken}} spot" data-taken="{{parkingSpots.[14].spot_taken}}" data-time="{{parkingSpots.[14].time_available}}" data-spot=15 data-bs-toggle="modal" href="#ModalToggle" role="button">15</a>
+                <a class="w-100 fifteen btn {{parkingSpots.[14].spot_taken}} spot" data-taken="{{parkingSpots.[14].spot_taken}}" data-time="{{parkingSpots.[14].time_available}}" data-spot=15 data-user="{{parkingSpots.[14].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">15</a>
             </div>
             <div class="col-1 black bottom-horizontal">
-                <a class="w-100 fourteen btn {{parkingSpots.[13].spot_taken}} spot" data-taken="{{parkingSpots.[13].spot_taken}}" data-time="{{parkingSpots.[13].time_available}}" data-spot=14 data-bs-toggle="modal" href="#ModalToggle" role="button">14</a>
+                <a class="w-100 fourteen btn {{parkingSpots.[13].spot_taken}} spot" data-taken="{{parkingSpots.[13].spot_taken}}" data-time="{{parkingSpots.[13].time_available}}" data-spot=14 data-user="{{parkingSpots.[13].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">14</a>
             </div>
             <div class="col-1 black bottom-horizontal right-white">
-                <a class="w-100 thirteen btn {{parkingSpots.[12].spot_taken}} spot" data-taken="{{parkingSpots.[12].spot_taken}}" data-time="{{parkingSpots.[12].time_available}}" data-spot=13 data-bs-toggle="modal" href="#ModalToggle" role="button">13</a>
+                <a class="w-100 thirteen btn {{parkingSpots.[12].spot_taken}} spot" data-taken="{{parkingSpots.[12].spot_taken}}" data-time="{{parkingSpots.[12].time_available}}" data-spot=13 data-user="{{parkingSpots.[12].user_id}}" data-bs-toggle="modal" href="#ModalToggle" role="button">13</a>
             </div>
             <div class="col-1 black"></div>
             <div class="col-1"></div>
