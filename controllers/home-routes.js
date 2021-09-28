@@ -22,7 +22,7 @@ router.get('/neighborhood', withAuth, async (req, res) => {
       spot.get({ plain: true })
     );
     // res.status(200).json(parkingSpots);
-    res.render('neighborhood', { parkingSpots, user_id: req.session.user_id })
+    res.render('neighborhood', { parkingSpots , logged_in: req.session.logged_in, user_id: req.session.user_id } )
     // colorChange();
   } catch (err) {
     res.status(500).json(err)
@@ -54,6 +54,8 @@ router.get('/spot/:id', withAuth, (req, res) => {
     res.status(500).json(err)
   }
 });
+
+
 
 
 module.exports = router;
