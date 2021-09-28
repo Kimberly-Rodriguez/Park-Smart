@@ -19,6 +19,8 @@ parked there.
   - [Contributors](#contributors)
   ## Installation
   This application uses many node modules.  Check the package.json to see all the dependencies.  Run "npm i" to install all dependencies.  You must also create a .env file to store your DB name, user and password information.
+  
+  The application is deployed at https://parksmart2021.herokuapp.com/
   ## Questions
   https://github.com/Kimberly-Rodriguez
   https://github.com/lyndseyjw
