@@ -53,18 +53,14 @@ function renderModal(event) {
         <button class="btn btn-danger editbtn" data-bs-toggle="modal">Edit My Time</button>
         <span>OR</span>
         <button class="btn btn-danger leavebtn" data-bs-toggle="modal">I'm Leaving</button>`
-      } else {
 
-        userView.innerHTML = '';
-      }
-
-        // putRequest 1
         const putRequest01 = async (event) => {
 
         
           const timeInput = document.querySelector('.timeavailable').value;
   
           const timeAvailable = moment().add(timeInput, 'minutes').format("h:mm A");
+
           if (event.target.matches('.editbtn')) {
             const response = await fetch(`/api/neighborhood/${spotId}`, {
               method: 'PUT',
@@ -83,7 +79,7 @@ function renderModal(event) {
             }
 
 
-        } else if (event.target.matches('.leavebtn')) {
+          } else if (event.target.matches('.leavebtn')) {
 
             const response = await fetch(`/api/neighborhood/${spotId}`, {
               method: 'PUT',
@@ -101,11 +97,15 @@ function renderModal(event) {
               response.json(err);
             }
 
+          }
         }
-  
         userView.addEventListener('click', putRequest01);
 
-    }
+      } else {
+
+        userView.innerHTML = '';
+      }
+        
 
     } else {
 
